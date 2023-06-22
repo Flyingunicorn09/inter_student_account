@@ -1,0 +1,62 @@
+// Define the StudentAccount class
+class StudentAccount {
+  private name: string;
+  private email: string;
+  private dateOfBirth: string;
+  
+  constructor(name: string, email: string, dateOfBirth: string) {
+    this.name = name;
+    this.email = email;
+    this.dateOfBirth = dateOfBirth;
+  }
+  
+  editName(newName: string): void {
+    this.name = newName;
+    console.log("Name updated.");
+  }
+  
+  editEmail(newEmail: string): void {
+    this.email = newEmail;
+    console.log("Email updated.");
+  }
+  
+  saveEmail(): void {
+    // Perform save email logic here (e.g., update in the database)
+    console.log("Email saved.");
+  }
+  
+  changePassword(newPassword: string): void {
+    // Perform change password logic here (e.g., update in the database)
+    console.log("Password changed.");
+  }
+  
+  editDateOfBirth(newDateOfBirth: string): void {
+    this.dateOfBirth = newDateOfBirth;
+    console.log("Date of Birth updated.");
+  }
+  
+  savePersonalDetails(): void {
+    // Perform save personal details logic here (e.g., update in the database)
+    console.log("Personal details saved.");
+  }
+}
+
+// Usage example
+const studentAccount = new StudentAccount("John Doe", "john@example.com", "1990-01-01");
+
+console.log("Before editing:");
+console.log("Name:", studentAccount.name);
+console.log("Email:", studentAccount.email);
+console.log("Date of Birth:", studentAccount.dateOfBirth);
+
+studentAccount.editName("Jane Doe");
+studentAccount.editEmail("jane@example.com");
+studentAccount.saveEmail();
+studentAccount.changePassword("newPassword");
+studentAccount.editDateOfBirth("1995-02-15");
+studentAccount.savePersonalDetails();
+
+console.log("After editing:");
+console.log("Name:", studentAccount.name);
+console.log("Email:", studentAccount.email);
+console.log("Date of Birth:", studentAccount.dateOfBirth);
