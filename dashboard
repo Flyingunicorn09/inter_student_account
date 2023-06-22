@@ -1,0 +1,58 @@
+// Define the Dashboard class
+class Dashboard {
+  private name: string;
+  
+  constructor(name: string) {
+    this.name = name;
+  }
+  
+  getName(): string {
+    return this.name;
+  }
+}
+
+// Define the StudentAccount class
+class StudentAccount {
+  private dashboards: Dashboard[];
+  private selectedDashboard: Dashboard | null;
+  
+  constructor() {
+    this.dashboards = [];
+    this.selectedDashboard = null;
+  }
+  
+  createDashboard(name: string): void {
+    const dashboard = new Dashboard(name);
+    this.dashboards.push(dashboard);
+  }
+  
+  selectDashboard(index: number): void {
+    if (index >= 0 && index < this.dashboards.length) {
+      this.selectedDashboard = this.dashboards[index];
+    } else {
+      console.log("Invalid dashboard index.");
+    }
+  }
+  
+  getSelectedDashboardName(): string | null {
+    if (this.selectedDashboard) {
+      return this.selectedDashboard.getName();
+    } else {
+      return null;
+    }
+  }
+}
+
+// Usage example
+const studentAccount = new StudentAccount();
+studentAccount.createDashboard("Dashboard 1");
+studentAccount.createDashboard("Dashboard 2");
+
+console.log("Available Dashboards:");
+for (let i = 0; i < studentAccount.dashboards.length; i++) {
+  console.log(`[${i}] ${studentAccount.dashboards[i].getName()}`);
+}
+
+studentAccount.selectDashboard(0);
+const selectedDashboard = studentAccount.getSelectedDashboardName();
+console.log(`Selected Dashboard: ${selectedDashboard}`);
