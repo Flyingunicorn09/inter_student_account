@@ -1,0 +1,46 @@
+// Define the StudentAccount class
+class StudentAccount {
+  private isLoggedIn: boolean;
+  
+  constructor() {
+    this.isLoggedIn = false;
+  }
+  
+  login(): void {
+    if (!this.isLoggedIn) {
+      // Perform login logic here (e.g., authentication)
+      this.isLoggedIn = true;
+      console.log("Logged in successfully.");
+    } else {
+      console.log("Already logged in.");
+    }
+  }
+  
+  logout(): void {
+    if (this.isLoggedIn) {
+      // Perform logout logic here (e.g., clearing session)
+      this.isLoggedIn = false;
+      console.log("Logged out successfully.");
+    } else {
+      console.log("Not logged in.");
+    }
+  }
+  
+  redirectToLandingPage(): void {
+    if (this.isLoggedIn) {
+      // Perform redirect logic here (e.g., navigate to landing page URL)
+      console.log("Redirecting to the landing page...");
+    } else {
+      console.log("Cannot redirect. User is not logged in.");
+    }
+  }
+}
+
+// Usage example
+const studentAccount = new StudentAccount();
+
+studentAccount.login();
+studentAccount.redirectToLandingPage();
+
+studentAccount.logout();
+studentAccount.redirectToLandingPage();
