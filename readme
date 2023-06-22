@@ -1,9 +1,9 @@
 a README file provides detailed instructions on how to launch the project:
 
 ```
-# Student Account Management System
+# Student Account Management
 
-This project is a student account management system implemented in TypeScript. It allows users to register, log in, access various pages, add personal details, edit personal details, change password, and log out.
+This project is a student account management implemented in TypeScript. It allows users to register, log in, access various pages, add personal details, edit personal details, change password, and log out.
 
 ## Prerequisites
 
