@@ -1,0 +1,73 @@
+// Define course interface
+interface Course {
+  id: number;
+  title: string;
+  description: string;
+}
+
+// Define user interface with additional courses field
+interface User {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  email: string;
+  password: string;
+  isEmailVerified: boolean;
+  learningProgress: number; // Learning progress in percentage
+  receiveNotifications: boolean; // Flag to indicate if user wants to receive notifications
+  courses: Course[]; // Array of courses added by the user
+}
+
+// In-memory database for storing course data
+const courses: Course[] = [
+  { id: 1, title: 'Course 1', description: 'Course 1 description' },
+  { id: 2, title: 'Course 2', description: 'Course 2 description' },
+  { id: 3, title: 'Course 3', description: 'Course 3 description' }
+];
+
+// Route: Courses List
+app.get('/courses', verifyToken, (req: Request, res: Response) => {
+  return res.status(200).json(courses);
+});
+
+// Route: Add Course to User's Module
+app.post('/courses/:id', verifyToken, (req: Request, res: Response) => {
+  const { email } = req.body.user;
+  const courseId = parseInt(req.params.id);
+
+  // Find the user based on the decoded email from the token
+  const user = users.find(user => user.email === email);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  // Find the course based on the provided courseId
+  const course = courses.find(course => course.id === courseId);
+  if (!course) {
+    return res.status(404).json({ error: 'Course not found' });
+  }
+
+  // Check if the course is already added to the user's module
+  const isCourseAdded = user.courses.some(course => course.id === courseId);
+  if (isCourseAdded) {
+    return res.status(400).json({ error: 'Course is already added to the user\'s module' });
+  }
+
+  // Add the course to the user's module
+  user.courses.push(course);
+
+  return res.status(201).json({ message: 'Course added to the user\'s module successfully' });
+});
+
+// Route: User's Course Module
+app.get('/module', verifyToken, (req: Request, res: Response) => {
+  const { email } = req.body.user;
+
+  // Find the user based on the decoded email from the token
+  const user = users.find(user => user.email === email);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  return res.status(200).json(user.courses);
+});
