@@ -1,0 +1,59 @@
+class Student {
+    private loggedIn: boolean = false;
+    private personalDetails: any = {};
+
+    register(username: string, password: string) {
+        // Logic to register the student
+        // ...
+        this.loggedIn = true;
+    }
+
+    login(username: string, password: string) {
+        // Logic to log in the student
+        // ...
+        this.loggedIn = true;
+    }
+
+    logout() {
+        this.loggedIn = false;
+    }
+
+    accessHomePage() {
+        if (this.loggedIn) {
+            // Logic to display the home page
+            console.log("Welcome to the home page!");
+        } else {
+            console.log("Please log in to access the home page.");
+        }
+    }
+
+    accessPersonalDetailsPage() {
+        if (this.loggedIn) {
+            // Logic to display the personal details page
+            console.log("Welcome to your personal details page!");
+        } else {
+            console.log("Please log in to access your personal details page.");
+        }
+    }
+
+    addPersonalDetails(details: any) {
+        if (this.loggedIn) {
+            // Logic to add personal details
+            this.personalDetails = details;
+            console.log("Personal details added successfully.");
+        } else {
+            console.log("Please log in to add personal details.");
+        }
+    }
+}
+
+// Usage example
+const student = new Student();
+student.register("username", "password");
+student.accessHomePage(); // Output: Welcome to the home page!
+
+student.addPersonalDetails({ name: "John Doe", age: 20 });
+student.accessPersonalDetailsPage(); // Output: Welcome to your personal details page!
+
+student.logout();
+student.accessHomePage(); // Output: Please log in to access the home page.

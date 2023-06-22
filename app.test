@@ -1,0 +1,89 @@
+import { Student } from './student';
+
+describe('Student Account Management', () => {
+  let student: Student;
+
+  beforeEach(() => {
+    student = new Student();
+  });
+
+  it('should register a new student', () => {
+    student.register('username', 'password');
+    expect(student.isLoggedIn()).toBe(true);
+  });
+
+  it('should log in an existing student', () => {
+    student.register('username', 'password');
+    student.logout();
+
+    student.login('username', 'password');
+    expect(student.isLoggedIn()).toBe(true);
+  });
+
+  it('should log out a student', () => {
+    student.register('username', 'password');
+    student.logout();
+
+    expect(student.isLoggedIn()).toBe(false);
+  });
+
+  it('should access the home page when logged in', () => {
+    student.register('username', 'password');
+    expect(student.accessHomePage()).toBe('Welcome to the home page!');
+  });
+
+  it('should not access the home page when not logged in', () => {
+    expect(student.accessHomePage()).toBe('Please log in to access the home page.');
+  });
+
+  it('should access the personal details page when logged in', () => {
+    student.register('username', 'password');
+    expect(student.accessPersonalDetailsPage()).toBe('Welcome to your personal details page!');
+  });
+
+  it('should not access the personal details page when not logged in', () => {
+    expect(student.accessPersonalDetailsPage()).toBe('Please log in to access your personal details page.');
+  });
+
+  it('should add personal details when logged in', () => {
+    student.register('username', 'password');
+    student.addPersonalDetails({ name: 'John Doe', age: 20 });
+    expect(student.getPersonalDetails()).toEqual({ name: 'John Doe', age: 20 });
+  });
+
+  it('should not add personal details when not logged in', () => {
+    student.addPersonalDetails({ name: 'John Doe', age: 20 });
+    expect(student.getPersonalDetails()).toEqual({});
+  });
+
+  it('should edit the email when logged in', () => {
+    student.register('username', 'password');
+    student.addPersonalDetails({ name: 'John Doe', age: 20, email: 'john@example.com' });
+
+    student.editEmail('newemail@example.com');
+    expect(student.getPersonalDetails().email).toBe('newemail@example.com');
+  });
+
+  it('should not edit the email when not logged in', () => {
+    student.addPersonalDetails({ name: 'John Doe', age: 20, email: 'john@example.com' });
+
+    student.editEmail('newemail@example.com');
+    expect(student.getPersonalDetails().email).toBe('john@example.com');
+  });
+
+  it('should change the password when logged in with correct current password', () => {
+    student.register('username', 'password');
+    student.addPersonalDetails({ name: 'John Doe', age: 20, email: 'john@example.com' });
+
+    student.changePassword('password', 'newpassword');
+    expect(student.getPersonalDetails().password).toBe('newpassword');
+  });
+
+  it('should not change the password when logged in with incorrect current password', () => {
+    student.register('username', 'password');
+    student.addPersonalDetails({ name: 'John Doe', age: 20, email: 'john@example.com' });
+
+    student.changePassword('wrongpassword', 'newpassword');
+    expect(student.getPersonalDetails().password).toBe('password');
+  });
+});

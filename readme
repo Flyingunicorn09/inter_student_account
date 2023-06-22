@@ -1,0 +1,65 @@
+a README file provides detailed instructions on how to launch the project:
+
+```
+# Student Account Management System
+
+This project is a student account management system implemented in TypeScript. It allows users to register, log in, access various pages, add personal details, edit personal details, change password, and log out.
+
+## Prerequisites
+
+Make sure you have the following software installed on your machine:
+
+- Node.js (version X.X.X or higher)
+- npm (version X.X.X or higher)
+
+## Getting Started
+
+1. Clone the repository to your local machine:
+
+```
+git clone https://github.com/your-username/student-account-management.git
+```
+
+2. Navigate to the project directory:
+
+```
+cd student-account-management
+```
+
+3. Install the dependencies:
+
+```
+npm install
+```
+
+## Usage
+
+1. Launch the application:
+
+```
+npm start
+```
+
+2. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to access the application.
+
+3. Register a new student account by providing a username and password.
+
+4. After successful registration, a verification email will be sent to your provided email address. Check your inbox and follow the instructions to verify your email.
+
+5. Log in to the application using your registered credentials.
+
+6. Once logged in, you can access the home page, personal details page, and perform various actions like adding personal details, editing email, changing password, and saving changes.
+
+7. To log out, click on the "Log Out" button or simply close the browser tab.
+
+## Contributing
+
+Contributions are welcome! If you find any bugs or have suggestions for improvement, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+```
+
+Feel free to modify the README file according to your project structure and any additional information you'd like to provide.
