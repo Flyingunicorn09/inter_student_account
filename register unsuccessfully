@@ -1,0 +1,77 @@
+// Define the StudentAccount class
+class StudentAccount {
+  private email: string;
+  private isVerified: boolean;
+  
+  constructor(email: string) {
+    this.email = email;
+    this.isVerified = false;
+  }
+  
+  sendVerificationEmail(): void {
+    // Simulate sending a verification email
+    console.log(`Verification email sent to: ${this.email}`);
+  }
+  
+  verifyAccount(): void {
+    // Perform account verification logic here (e.g., validate verification code)
+    this.isVerified = true;
+    console.log("Account verified.");
+  }
+}
+
+// Define the StudentRegistration class
+class StudentRegistration {
+  private accounts: StudentAccount[];
+  
+  constructor() {
+    this.accounts = [];
+  }
+  
+  register(email: string): void {
+    // Check if email is already registered
+    if (this.isEmailRegistered(email)) {
+      console.log("Email is already registered.");
+      return;
+    }
+    
+    // Create a new student account
+    const account = new StudentAccount(email);
+    
+    // Add the account to the list
+    this.accounts.push(account);
+    
+    // Send verification email
+    account.sendVerificationEmail();
+  }
+  
+  isEmailRegistered(email: string): boolean {
+    return this.accounts.some((account) => account.email === email);
+  }
+  
+  verifyAccount(email: string): void {
+    // Find the account with the given email
+    const account = this.accounts.find((account) => account.email === email);
+    
+    if (account) {
+      account.verifyAccount();
+    } else {
+      console.log("Account not found.");
+    }
+  }
+}
+
+// Usage example
+const registration = new StudentRegistration();
+
+// Successful registration
+registration.register("john@example.com");
+
+// Unsuccessful registration (email already registered)
+registration.register("john@example.com");
+
+// Verify the account
+registration.verifyAccount("john@example.com");
+
+// Unsuccessful verification (account not found)
+registration.verifyAccount("jane@example.com");
