@@ -1,0 +1,41 @@
+// Define user interface with additional learning progress field
+interface User {
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  email: string;
+  password: string;
+  isEmailVerified: boolean;
+  learningProgress: number; // Learning progress in percentage
+  receiveNotifications: boolean; // Flag to indicate if user wants to receive notifications
+}
+
+// Route: Dashboard Page
+app.get('/dashboard', verifyToken, (req: Request, res: Response) => {
+  const { email } = req.body.user;
+
+  // Find the user based on the decoded email from the token
+  const user = users.find(user => user.email === email);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  return res.status(200).json({ learningProgress: user.learningProgress });
+});
+
+// Route: Toggle Notification Settings
+app.put('/notifications', verifyToken, (req: Request, res: Response) => {
+  const { email } = req.body.user;
+  const { receiveNotifications } = req.body;
+
+  // Find the user based on the decoded email from the token
+  const user = users.find(user => user.email === email);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  // Update the user's notification settings
+  user.receiveNotifications = receiveNotifications;
+
+  return res.status(200).json({ message: 'Notification settings updated successfully' });
+});
