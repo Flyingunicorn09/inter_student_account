@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Account Registration</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>International Student Account</h1>
+  </header>
+
+  <div class="main-content">
+    <div class="square-icon">OF</div>
+
+    <div class="editable-field">
+      <label for="student-name">Student's Name</label>
+      <input type="text" id="student-name" placeholder="Enter your name">
+    </div>
+
+    <div class="editable-field">
+      <label for="date-of-birth">Date of Birth</label>
+      <input type="text" id="date-of-birth" placeholder="Enter your date of birth">
+    </div>
+
+    <div class="editable-field">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email address">
+    </div>
+
+    <div class="editable-field">
+      <label for="password">Change Password</label>
+      <input type="password" id="password" placeholder="Enter new password">
+    </div>
+  </div>
+
+  <footer class="footer">
+    International Student Account
+  </footer>
+</body>
+</html>

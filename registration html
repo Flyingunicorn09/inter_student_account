@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Account Registration</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Create Account</h1>
+  </div>
+
+  <div class="main-content">
+    <div class="form-container">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Create Password">
+      <input type="password" placeholder="Confirm Password">
+      <button class="signup-button">Sign Up</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    International Student Account
+  </footer>
+</body>
+</html>

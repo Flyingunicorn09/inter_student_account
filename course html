@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Account Courses</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>International Student Account</h1>
+  </header>
+
+  <a href="#" class="home-link">Home</a>
+
+  <div class="main-content">
+    <div class="square-icon">OF</div>
+
+    <div class="tabs">
+      <div class="tab">Select Course</div>
+      <div class="tab">Create Assign to Course</div>
+    </div>
+
+    <div class="no-course-tab">
+      You do not have any assigned course, please assign now.
+    </div>
+
+    <!-- Content for the course page goes here -->
+  </div>
+
+  <footer class="footer">
+    International Student Account
+  </footer>
+</body>
+</html>p

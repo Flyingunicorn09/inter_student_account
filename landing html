@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>International Student Account</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>International Student Account</h1>
+  </header>
+
+  <div class="main-content">
+    <div class="tab-container">
+      <div class="tab active" onclick="changeTab('personal-details')">Personal Details</div>
+      <div class="tab" onclick="changeTab('dashboard')">Dashboard</div>
+      <div class="tab" onclick="changeTab('courses')">Courses</div>
+    </div>
+
+    <div id="personal-details" class="tab-content active">
+      <!-- Content for Personal Details tab -->
+      <h2>Personal Details</h2>
+      <!-- Add your content here -->
+    </div>
+
+    <div id="dashboard" class="tab-content">
+      <!-- Content for Dashboard tab -->
+      <h2>Dashboard</h2>
+      <!-- Add your content here -->
+    </div>
+
+    <div id="courses" class="tab-content">
+      <!-- Content for Courses tab -->
+      <h2>Courses</h2>
+      <!-- Add your content here -->
+    </div>
+  </div>
+
+  <footer class="footer">
+    International Student Account
+  </footer>
+</body>
+</html>
